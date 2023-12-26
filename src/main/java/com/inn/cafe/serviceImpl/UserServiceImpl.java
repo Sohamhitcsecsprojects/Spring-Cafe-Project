@@ -125,6 +125,7 @@ public class UserServiceImpl implements UserService {
                Optional<User> optional =  userDao.findById(Integer.parseInt(requestMap.get("id")));
                if(!optional.isEmpty()){
                   userDao.updateStatus(requestMap.get("status"), Integer.parseInt(requestMap.get("id")));
+                  sendMailToAllAdmin(requestMap.get("status"),optional.get().getEmail(),userDao.getAllAdmin());
                   return CafeUtilits.getResponseEntity("User status updated Successfully",HttpStatus.OK);
                }else{
                   return CafeUtilits.getResponseEntity("User id does not exist",HttpStatus.OK);
@@ -138,5 +139,9 @@ public class UserServiceImpl implements UserService {
         }
         return CafeUtilits.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    private void sendMailToAllAdmin(String status, String email, List<String> allAdmin) {
+    }
+
 
 }
