@@ -9,18 +9,16 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface UserDao extends JpaRepository<User, Integer> {
+public interface UserDao extends JpaRepository<User, Integer>{
+	
+	User findbyEmailID(@Param("email") String email);
 
-    User findbyEmailID(@Param("email") String email);
-
-    List<UserWrapper> getAllUser();
-
-    List<String> getAllAdmin();
+	List<UserWrapper> getAllUser();
+	List<String> getAllAdmin();
 
 
-    @Transactional
-    @Modifying
-    Integer updateStatus(@Param("status") String status, @Param("id") Integer id);
+	@Transactional
+	@Modifying
+	Integer updateStatus(@Param("status")String status,@Param("id")Integer id);
 
-    User findByemail(String email);
 }
