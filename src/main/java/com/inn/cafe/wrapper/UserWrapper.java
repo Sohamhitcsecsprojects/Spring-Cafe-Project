@@ -13,7 +13,7 @@ public class UserWrapper {
 
     private String email;
 
-    private String ContactNumber;
+    private String contactNumber;
 
     private String status;
 
@@ -22,7 +22,7 @@ public class UserWrapper {
         this.id = id;
         this.name = name;
         this.email = email;
-        ContactNumber = contactNumber;
+        this.contactNumber = contactNumber;
         this.status = status;
     }
 }
