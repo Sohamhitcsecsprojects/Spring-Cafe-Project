@@ -29,4 +29,9 @@ public class ProductWrapper {
 
     }
 
+    public ProductWrapper(Integer id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
 }
